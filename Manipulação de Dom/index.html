@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manipulação de Elementos HTML</title>
+<style>
+  #header {
+    background-color: #FF5733;
+    padding: 20px;
+    color: white;
+    cursor: pointer;
+  }
+  .destaque {
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+
+<h1 id="header">Cabeçalho</h1>
+
+<!-- PARTE 1: Inserir novo parágrafo na seção "Sobre Nossa Empresa" -->
+<section id="about">
+  <h2>Sobre Nossa Empresa</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+</section>
+
+<!-- PARTE 2: Alterar texto do último item da lista de produtos -->
+<section id="products">
+  <h2>Nossos Produtos</h2>
+  <ul>
+    <li class="destaque">Produto 1</li>
+    <li>Produto 2</li>
+    <li>Produto 3</li>
+    <li>Produto 4</li>
+  </ul>
+</section>
+
+<!-- PARTE 3: Contar e exibir quantidade de itens na lista de produtos -->
+<script>
+  const productsList = document.getElementById('products').querySelector('ul');
+  const productCount = document.createElement('p');
+  productCount.textContent = `Total de produtos: ${productsList.children.length}`;
+  productsList.insertAdjacentElement('afterend', productCount);
+</script>
+
+<!-- PARTE 4: Selecionar e alterar texto do segundo parágrafo da seção "Serviços Oferecidos" -->
+<section id="services">
+  <h2>Serviços Oferecidos</h2>
+  <p>Oferecemos uma variedade de serviços para atender às necessidades de nossos clientes.</p>
+</section>
+
+<!-- PARTE 5: Adicionar classe "destaque" ao primeiro item da lista de produtos -->
+<script>
+  const firstProduct = productsList.firstElementChild;
+  firstProduct.classList.add('destaque');
+</script>
+
+<!-- PARTE 6: Remover tabela de relatório de vendas da seção correspondente -->
+<!-- Adicione aqui a tabela de relatório de vendas -->
+
+<!-- PARTE 7: Alterar atributo href do último item do menu para "contato.html" -->
+<nav id="menu">
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Produtos</a></li>
+    <li><a href="#">Serviços</a></li>
+    <li><a href="#">Contato</a></li>
+  </ul>
+</nav>
+
+<script>
+  const menuLinks = document.querySelectorAll('#menu a');
+  const lastMenuItem = menuLinks[menuLinks.length - 1];
+  lastMenuItem.setAttribute('href', 'contato.html');
+</script>
+
+<!-- PARTE 8: Estilização dinâmica do cabeçalho alternando entre as cores de fundo #333 e #555 -->
+<script>
+  const header = document.getElementById('header');
+  let isDark = true;
+  header.addEventListener('click', () => {
+    isDark = !isDark;
+    header.style.backgroundColor = isDark ? '#333' : '#555';
+  });
+</script>
+
+</body>
+</html>
